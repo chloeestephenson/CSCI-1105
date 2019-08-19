@@ -1,2 +1,3 @@
 # CSCI-1105
-## Introduction to Programming at Southwest Tech.
+## Object Oriented Programming at Southwest Tech.
+### Contains Assignments for Object Oriented Programming
