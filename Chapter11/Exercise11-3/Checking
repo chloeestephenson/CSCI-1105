@@ -1,0 +1,35 @@
+/**
+ * Author: Chloee Stephenson
+ * Date: 12-2-19
+ * Description: Sub class of Account that has an overdraft limit
+ */
+public class Checking extends Account{
+	private double overdraftLimit = 0.0;
+	double withdraw = 0.0;
+	double deposit = 0.0;
+	Checking(){
+		super();
+	}
+	Checking(int newid, double newbalance, double newoverdraftLimit){
+		super();
+		overdraftLimit = newoverdraftLimit;
+	}
+	public double getOverdraftLimit() {
+		return overdraftLimit;
+	}
+	public void setOverdraftLimit(double overdraftLimit) {
+		this.overdraftLimit = overdraftLimit;
+	}
+	public void withdraw(double withdraw) {
+		super.withdraw(withdraw);
+		if(withdraw > overdraftLimit) {
+			withdraw = 0.0;
+		}
+	}
+	public void deposit(double deposit) {
+		super.deposit(deposit);
+	}
+	public double getBalance() {
+		return super.getBalance();
+	}
+}
