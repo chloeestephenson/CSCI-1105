@@ -1,103 +1,116 @@
 /**
  * Author: Chloee Stephenson
- * Date: 11-9-19
+ * Date: 02-19-20
  * Description: This will implement the account and subclasses
  * 
  */
 import java.util.Scanner;
+
 public class Exercise11_3 {
 static Scanner input = new Scanner(System.in);
 	public static void main(String args[]) {
-		double u = 0.0;
 		int acc = 0;
 		double bal = 0.0;
 		double o = 0.0;
+		double u = 0.0;
 		
-		System.out.println("Please enter your account number: ");
-		acc = input.nextInt();
-		
-		System.out.println("Please enter your account balance: ");
-		bal = input.nextDouble();
 		do {
-			System.out.println("Enter 1 or 2 to select account type: ");
-			System.out.println("1 = Savings account");
-			System.out.println("2 = Checkings account");
-			System.out.println("Enter 5 to Start Over");
-			u = input.nextDouble();
-	
-			if(u == 1) {
-				System.out.println("Savings account initiated... ");
-				System.out.println("There is no overdraft limit. ");
-				Saving s1 = new Saving(acc, bal); 
-				do {
-					System.out.println("Enter a number to select an option: ");
-					System.out.println("1: Check Balance");
-					System.out.println("2: Withdraw");
-					System.out.println("3: Deposit");
-					System.out.println("4: Exit");
-					u = input.nextDouble();
-				
-					if (u == 1) {
-						System.out.println("Your balance is: " + s1.getBalance());
-					}
-					else if (u == 2) {
-						System.out.println("Enter a withdraw amount: ");
-						u = input.nextDouble();
-						s1.withdraw(u);
-						System.out.println("Withdraw has been completed.");
-					}
-					else if (u == 3) {
-						System.out.println("Enter a deposit amount: ");
-						u = input.nextDouble();
-						s1.deposit(u);
-						System.out.println("Deposit has been completed.");
-					}
+			System.out.println("Please enter your account number: ");
+			acc = input.nextInt();
+			
+			System.out.println("Please enter your account balance: ");
+			bal = input.nextDouble();
+			
+			do {
+				System.out.println("Enter 1 or 2 to select account type: ");
+				System.out.println("1 = Savings account");
+				System.out.println("2 = Checkings account");
+				System.out.println("Enter 3 to Start Over");
+				u = input.nextDouble();
+		
+				if(u == 1) {
+					System.out.println("Savings account initiated... ");
+					System.out.println("There is no overdraft limit. ");
+					System.out.println("Your account number is: " + acc);
+					System.out.println("Your account balance is: " + bal);
+					Saving s1 = new Saving(acc, bal); 
+					do {
+						
+						System.out.println("Enter a number to select an option: ");
+						System.out.println("1: Check Balance");
+						System.out.println("2: Withdraw");
+						System.out.println("3: Deposit");
+						System.out.println("4: Exit");
+						o = input.nextDouble();
 					
-					else {
-						System.out.println("That is not a valid option, try again: ");
-					}
-					}while(u != 4);
+						if (o == 1) {
+							System.out.println("Your balance is: " + s1.getBalance());
+						}
+						else if (o == 2) {
+							System.out.println("Enter a withdraw amount: ");
+							o = input.nextDouble();
+							s1.withdraw(o);
+							System.out.println("Withdraw has been completed.");
+						}
+						else if (o == 3) {
+							System.out.println("Enter a deposit amount: ");
+							o = input.nextDouble();
+							s1.deposit(o);
+							System.out.println("Deposit has been completed.");
+						}
+						
+						else {
+							System.out.println("That is not a valid option, try again: ");
+						}
+					}while(o != 4);
+						
 				}
+						
+				if (u == 2){
+					System.out.println("Checkings account initiated... ");
+					System.out.println("Enter an overdraft limit: ");
+					o = input.nextDouble();
+					Checking c1 = new Checking(acc, bal, o);
+					System.out.println("Account has been created "
+							+ "with an overdraft limit of " + o);
+					do {
+						System.out.println("Enter a number to select an option: ");
+						System.out.println("1: Check Balance");
+						System.out.println("2: Withdraw");
+						System.out.println("3: Deposit");
+						System.out.println("4: Exit");
+						o = input.nextDouble();
 					
-			if (u == 2){
-				System.out.println("Checkings account initiated... ");
-				System.out.println("Enter an overdraft limit: ");
-				o = input.nextDouble();
-				Checking c1 = new Checking(acc, bal, o);
-				System.out.println("Account has been created "
-						+ "with an overdraft limit of " + o);
-				do {
-					System.out.println("Enter a number to select an option: ");
-					System.out.println("1: Check Balance");
-					System.out.println("2: Withdraw");
-					System.out.println("3: Deposit");
-					System.out.println("4: Exit");
-					u = input.nextDouble();
-				
-					if (u == 1) {
-						System.out.println("Your balance is: " + c1.getBalance());
+						if (o == 1) {
+							System.out.println("Your balance is: " + c1.getBalance());
+						}
+						else if (o == 2) {
+							System.out.println("Enter a withdraw amount: ");
+							o = input.nextDouble();
+							c1.withdraw(o);
+							System.out.println("Withdraw has been completed.");
+						}
+						else if (o == 3) {
+							System.out.println("Enter a deposit amount: ");
+							o = input.nextDouble();
+							c1.deposit(o);
+							System.out.println("Deposit has been completed.");
+						}
+						
+						else {
+							System.out.println("That is not a valid option, try again: ");
+						}
+						}while(o != 4);		
 					}
-					else if (u == 2) {
-						System.out.println("Enter a withdraw amount: ");
-						u = input.nextDouble();
-						c1.withdraw(u);
-						System.out.println("Withdraw has been completed.");
-					}
-					else if (u == 3) {
-						System.out.println("Enter a deposit amount: ");
-						u = input.nextDouble();
-						c1.deposit(u);
-						System.out.println("Deposit has been completed.");
-					}
-					
-					else {
-						System.out.println("That is not a valid option, try again: ");
-					}
-					}while(u != 4);		
+				else if(u == 3) {
+					u = 3;
 				}
-			else {
-				System.out.println("That is not a valid option, try again: ");
-			}
-		}while(u!=5);
+				else {
+					System.out.println("That is not a valid option, try again: ");
+				}
+			}while(u != 3);
+			  
+			
+		}while(u != 4);
+	  }
 	}
-}
