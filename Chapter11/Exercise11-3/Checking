@@ -1,6 +1,6 @@
 /**
  * Author: Chloee Stephenson
- * Date: 12-2-19
+ * Date: 02-19-20
  * Description: Sub class of Account that has an overdraft limit
  */
 public class Checking extends Account{
