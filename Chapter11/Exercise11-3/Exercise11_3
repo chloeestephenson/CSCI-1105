@@ -1,6 +1,6 @@
 /**
  * Author: Chloee Stephenson
- * Date: 02-19-20
+ * Date: 03-13-20
  * Description: This will implement the account and subclasses
  * 
  */
@@ -34,6 +34,7 @@ static Scanner input = new Scanner(System.in);
 					System.out.println("Your account number is: " + acc);
 					System.out.println("Your account balance is: " + bal);
 					Saving s1 = new Saving(acc, bal); 
+					s1.setBalance(bal);
 					do {
 						
 						System.out.println("Enter a number to select an option: ");
@@ -57,6 +58,9 @@ static Scanner input = new Scanner(System.in);
 							o = input.nextDouble();
 							s1.deposit(o);
 							System.out.println("Deposit has been completed.");
+						}
+						else if (o == 4) {
+							u = 4;
 						}
 						
 						else {
@@ -96,11 +100,13 @@ static Scanner input = new Scanner(System.in);
 							c1.deposit(o);
 							System.out.println("Deposit has been completed.");
 						}
-						
+						else if (o == 4) {
+							u = 4;
+						}
 						else {
 							System.out.println("That is not a valid option, try again: ");
 						}
-						}while(o != 4);		
+					}while(u != 4);		
 					}
 				else if(u == 3) {
 					u = 3;
