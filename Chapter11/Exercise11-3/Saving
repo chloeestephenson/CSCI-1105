@@ -1,22 +1,14 @@
 /**
  * Author: Chloee Stephenson
- * Date: 02-19-20
+ * Date: 03-13-20
  * Description: Sub class of Account that has no overdraft limit
  */
 public class Saving extends Account{
-	double withdraw = 0.0;
-	double deposit = 0.0;
 	
 	Saving(){
 	}
 	Saving(int newid, double newbalance){
 		super();
-	}
-	public void withdraw(double withdraw) {
-		super.withdraw(withdraw);
-	}
-	public void deposit(double deposit) {
-		super.deposit(deposit);
 	}
 	public double getBalance() {
 		return super.getBalance();
@@ -24,5 +16,13 @@ public class Saving extends Account{
 	public void setBalance(double balance) {
 		super.setBalance(balance);
 	}
+	
+	public void withdraw(double withdraw) {
+		super.withdraw(withdraw);
+	}
+	public void deposit(double deposit) {
+		super.deposit(deposit);
+	}
+	
 	
 }
