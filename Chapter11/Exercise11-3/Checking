@@ -1,6 +1,6 @@
 /**
  * Author: Chloee Stephenson
- * Date: 03-13-20
+ * Date: 04-1-20
  * Description: Sub class of Account that has an overdraft limit
  */
 public class Checking extends Account{
@@ -13,19 +13,18 @@ public class Checking extends Account{
 	Checking(int newid, double newbalance, double newoverdraftLimit){
 		super();
 		overdraftLimit = newoverdraftLimit;
-		overdraftAmount = newbalance + newoverdraftLimit;
+	}
+	public int getId() {
+		return super.getId();
+	}
+	public void setId(int id) {
+		super.setId(id);
 	}
 	public double getOverdraftLimit() {
 		return overdraftLimit;
 	}
 	public void setOverdraftLimit(double overdraftLimit) {
 		this.overdraftLimit = overdraftLimit;
-	}
-	public double getOverdraftAmount() {
-		return overdraftAmount;
-	}
-	public void setOverdraftAmount(double newbalance, double overdraftLimit) {
-		this.overdraftAmount = overdraftLimit;
 	}
 	public double getBalance() {
 		return super.getBalance();
@@ -35,12 +34,16 @@ public class Checking extends Account{
 	}
 	public void withdraw(double withdraw) {
 		super.withdraw(withdraw);
-		if(withdraw > overdraftLimit) {
+		if(withdraw > overdraftAmount) {
 			withdraw = 0.0;
 		}
 	}
 	public void deposit(double deposit) {
 		super.deposit(deposit);
 	}
+	public String toString() {
+		return "Created on " + date + ", Account number: " + getId() + ", Overdraft Limit: " + overdraftLimit +
+		  " Account type: Checking";
+	  }
 
 }
