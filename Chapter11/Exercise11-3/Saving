@@ -1,6 +1,6 @@
 /**
  * Author: Chloee Stephenson
- * Date: 03-13-20
+ * Date: 04-1-20
  * Description: Sub class of Account that has no overdraft limit
  */
 public class Saving extends Account{
@@ -9,6 +9,12 @@ public class Saving extends Account{
 	}
 	Saving(int newid, double newbalance){
 		super();
+	}
+	public int getId() {
+		return super.getId();
+	}
+	public void setId(int id) {
+		super.setId(id);
 	}
 	public double getBalance() {
 		return super.getBalance();
@@ -23,6 +29,9 @@ public class Saving extends Account{
 	public void deposit(double deposit) {
 		super.deposit(deposit);
 	}
-	
+	public String toString() {
+		return "Created on " + date + ", Account number: " + getId() + 
+		  " Account type: Saving";
+	  }
 	
 }
